@@ -1,0 +1,127 @@
+Project Description:
+
+	Ants at the Picnic -- Tower Defense
+
+	Place picnic items (towers) to defend the picnic basket from ants! This is a traditional tower defense game: if too many ants reach the base, the game is over. The towers automatically attack the ants in range. Different towers have different attack styles; different types of ants are more resistant or suceptible to certain tower types.
+
+
+Competitive Analysis:
+
+** to be able to see the table, turn off word wrap **
+
+╔═══════════════════╦═══════════╦═════════════════════════════════════════╦═══════════════════════════════════════════╦════════════════════════════════════╦════════════════════════════════════════╗
+║                   ║ Map Type  ║ Tower Types                             ║ Powerups                                  ║ Upgrade System                     ║ Difficulty Settings                    ║
+╠═══════════════════╬═══════════╬═════════════════════════════════════════╬═══════════════════════════════════════════╬════════════════════════════════════╬════════════════════════════════════════╣
+║ Bloons TD 5       ║ Free-form ║ Support -- decrease tower upgrade cost  ║ Attack -- placed directly on enemy path   ║ In battle -- tower upgrade paths   ║ Different tracks have different        ║
+║                   ║           ║            improve tower attributes     ║                                           ║              are branched, 4 tiers ║   base difficulties                    ║
+║                   ║           ║            slows / stuns enemies        ║ Can also hire "special agents" which are  ║ Monkey lab -- global upgrades      ║ After selecting a track, adjusting     ║
+║                   ║           ║ Attack -- wide range of styles          ║   towers that can be used only once per   ║ Specialty buildings --             ║   the difficulty affects # of lives    ║
+║                   ║           ║           one that stands out can be    ║   purchase                                ║   globally improves tower          ║   speed of enemies, cash earned        ║
+║                   ║           ║             controlled by pointing the  ║                                           ║   attributes at the cost of        ║   per wave, reward                     ║
+║                   ║           ║             mouse, attacks continuously ║                                           ║   another tower's attributes       ║                                        ║
+║                   ║           ║ Some towers are limited in where they   ║                                           ║                                    ║                                        ║
+║                   ║           ║   can be placed                         ║                                           ║                                    ║                                        ║
+╠═══════════════════╬═══════════╬═════════════════════════════════════════╬═══════════════════════════════════════════╬════════════════════════════════════╬════════════════════════════════════════╣
+║ Infinitode 2      ║ Grid      ║ Support -- slows enemies, lower defense ║ Can place modifiers on grid squares where ║ Experience -- as towers kill       ║ Easy, normal, and hard modes exist     ║
+║                   ║           ║ Attack -- wide variety, like Bloons     ║   towers are placed to improve tower      ║   enemies and are on-screen, they  ║ Resources for upgrades earned increase ║
+║                   ║           ║                                         ║   attributes -- can be upgraded and       ║   gain levels (improving stats)    ║   with difficulty                      ║
+║                   ║           ║                                         ║   affect multiple towers                  ║   - at certain ex levels reached,  ║ For hard mode, a larger set of global  ║
+║                   ║           ║                                         ║                                           ║     you can pick one of three      ║   upgrades is available                ║
+║                   ║           ║                                         ║ Skills -- can be unlocked and used once   ║     skills -- at exp lvl 10, a     ║                                        ║
+║                   ║           ║                                         ║   in a given time interval                ║     a major upgrade is unlocked    ║                                        ║
+║                   ║           ║                                         ║                                           ║ You can also use in game currency  ║                                        ║
+║                   ║           ║                                         ║                                           ║   to upgrade towers                ║                                        ║
+║                   ║           ║                                         ║                                           ║ Global upgrades -- this game is    ║                                        ║
+║                   ║           ║                                         ║                                           ║   really complex with lots of      ║                                        ║
+║                   ║           ║                                         ║                                           ║   in game currencies used to       ║                                        ║
+║                   ║           ║                                         ║                                           ║   globally upgrade towers and      ║                                        ║
+║                   ║           ║                                         ║                                           ║   unlock skills. There are also    ║                                        ║
+║                   ║           ║                                         ║                                           ║   global upgrades that affect      ║                                        ║
+║                   ║           ║                                         ║                                           ║   all towers                       ║                                        ║
+╠═══════════════════╬═══════════╬═════════════════════════════════════════╬═══════════════════════════════════════════╬════════════════════════════════════╬════════════════════════════════════════╣
+║ Plants vs Zombies ║ Grid      ║ Support -- generate currency,           ║ Attack -- remove or attack enemies        ║ Upgrades can be purchased that     ║ There are mini-games but not explicit  ║
+║                   ║ Weather   ║   situational depending on the weather  ║                                           ║   are planted on top of the base   ║   difficulty levels.                   ║
+║                   ║           ║   / map                                 ║                                           ║   tower                            ║   Newer editions of the game have more ║
+║                   ║           ║ Attack -- simpler than the others:      ║                                           ║                                    ║   mini-games and an easy / hard mode   ║
+║                   ║           ║   "melee", ranged, and explosive towers ║                                           ║ Some global upgrades exist, but    ║   setting                              ║
+║                   ║           ║ Defense -- block enemies on the path    ║                                           ║   not nearly as many as in the     ║                                        ║
+║                   ║           ║                                         ║                                           ║   other two                        ║                                        ║
+║                   ║           ║ Some towers are limited in where they   ║                                           ║                                    ║                                        ║
+║                   ║           ║   can be placed                         ║                                           ║                                    ║                                        ║
+╚═══════════════════╩═══════════╩═════════════════════════════════════════╩═══════════════════════════════════════════╩════════════════════════════════════╩════════════════════════════════════════╝
+
+I organized the important game features of popular tower defence games in the table above. It seems that grid-based and free-form based map types are used -- I'll probably use a grid for placing towers and have the enemies move fluidly (following the grid but not hopping from square to square. Games tend to have a wide variety of tower types which have both attack and support functions. It makes the most sense for a week-long project to have <5 tower types, focusing mainly on attack-type towers. The same can be said for enemy types -- most games have a wide variety of enemy types -- I will focus on <5 and add more if it makes sense to. Most games also tend to have powerups, which are usually placed directly on the enemy path or are activated and attack a range of the enemy path or debuff them. I think this would be a nice "extra" feature to implement but I do not think it is the most important thing to include. I definitely plan to implement some kind of upgrade system -- it will preliminarily focus on upgrading within levels, but if I can add global upgrades as well, that would be a good extra feature. I plan to have two difficulty settings built in for the levels I manually create, but the levels generated from user input will have a wider variety of difficulty levels. The randomly generated levels is one feature I have not seen in any of the competitor games I've looked at or played -- it seems like a good interactive feature to add that will allow lots of unique levels to be created without lots of manual level-coding on my end. 
+Some features not explicitly mentioned in the table that all of the above programs had include -- currency. There's a currency for in-levels to purchase and upgrade towers, and there's a global currency used for global upgrades outside of levels. If I implement global upgrades, I will also implement a global currency as an extra feature if I get to global upgrades. All of the games have achivements -- this is something that I could also implement as an extra feature, but my main focus is going to be on my level generation algorithm. I can implement a pause / play feature, which is another feature all competitor games have.
+
+
+Structural Plan:
+
+TP Folder 
+- file containing tower class and subclasses
+- file containing enemy class and subclasses
+- file containing class for level generator and enemy list generator
+- mainApp (has all of the modes -- tutorial, wiki, main menu, level generator)
+- image files will be added later to a separate folder 
+
+I will make classes for each tower type and enemy type. I'll use modes to have a separate mode for the main menu, level selector, level generator, level instance (when we're actually playing the level), and create a mode that has a wiki for enemy and tower types. I can keep track of the towers in class attributes. I'll keep track of the enemies as a list of tuples of their instance and time they're supposed to enter the map. When timerFired hits the time, it is moved into the active enemy list. 
+I'd like to use sprites for the towers to show them shooting but it would be a good extra feature to make the game look nicer. 
+
+
+Algorithmic Plan:
+
+1. Take difficulty input from the user (Easy / Medium / Hard) and number of waves
+   - this affects the rate of enemy spawn, the number of enemies, starting currency amount, enemy health (or currency value of enemy)
+2. Randomly generate a map grid size
+3. Generate a path from the edge of the board to the center of the board (where the base will be). This is the enemy path. Any spot on the grid there is no enemy path, a tower can be placed.
+   - this will be in the form of a 2D list
+   - uses the recursive division method
+4. Generate enemy list based on aspects from 1
+   - randomly generate the enemy type
+
+** this is totally random
+
+The other algorithmically complex features is the enemy pathfinding to the base. This will involve recursive backtracking.
+For the starting cell, travels in every possible direction until it can't move anymore.
+Backtracks as necessary, checking every possible path until the path to the base is found.
+
+
+Timeline Plan:
+
+Sunday / Monday:
+  set up modes
+  create basic enemy and tower classes
+  create basic predefined level
+  start working on autogenerated level function
+
+Tuesday / Wednesday:
+  test basic levels
+  add a couple more enemy and tower classes
+  finish autogenerated level function
+  test all of the above
+
+Thursday / Friday:
+  add extra features (tbd), or if I get behind schedule finish work from Tuesday / Wednesday
+
+
+Version Control Plan:
+
+All of my files are backed up on OneDrive automatically (see photo in ZIP file). That's what the green check indicates on the bottom-left corner of the icon.
+
+	
+TP2 Update:
+Updated the Algorithmic Plan, Structural Plan
+Used maze generation to to randomly generate the board (recursive division)
+Used recursive backtracking to get enemy pathfinding to base 
+Made additional classes of generated levels and enemy lists
+No other changes
+
+
+TP3 Update:
+Added additional tower and enemy
+Added graphics for the base, towers, and enemies
+Instead of having a wiki page, added a high score page
+Display ant health bar and number on the screen 
+Changed end wave behavior -- if stupid ants are still on screen, they remain but the next wave starts
+Stopped maze generator from crashing
+Implemented score mechanic
+Implemented turning behavior in enemies 

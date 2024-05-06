@@ -1,0 +1,5 @@
+Bob: 50
+A: 9
+Ant: 484
+Spider: 549081
+Gillian: 198
